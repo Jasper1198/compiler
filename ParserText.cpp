@@ -2,14 +2,6 @@
 #include <vector>
 using namespace std;
 
-enum TokenType {
-    ID,      // Identifier
-    STRLIT,  // String literal
-    DOT,     // '.'
-    LBR,     // Left bracket (could be '(' or '[' etc.)
-    RBR,     // Right bracket (could be ')' or ']' etc.)
-    ERROR    // Error
-};
 
 struct Token {
     TokenType type;
@@ -56,7 +48,6 @@ void stmt(){
         return; // end
     }else{          //  若為字串則換下一個token
         if((tokens[current_token_index].value[0]=='\"')&&(tokens[current_token_index].value.back()=='\"')){
-            tokens[current_token_index].type = STRLIT;
             cout<<"STRLIT "<<tokens[current_token_index].value<<endl;
             current_token_index++;
         }else{
